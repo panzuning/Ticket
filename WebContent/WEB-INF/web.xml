@@ -49,4 +49,14 @@
     <servlet-name>LineController</servlet-name>
     <url-pattern>/LineController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TicketController</display-name>
+    <servlet-name>TicketController</servlet-name>
+    <servlet-class>com.ticket.controller.TicketController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TicketController</servlet-name>
+    <url-pattern>/TicketController</url-pattern>
+  </servlet-mapping>
 </web-app>

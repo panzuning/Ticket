@@ -15,17 +15,42 @@
 .top {
 	padding-top: 50px;
 }
-
-
 .query {
 	margin-bottom: 20px;
+	margin-top: 30px;
+}
+.title {
+	height:50px;
+}
+.title span{
+	font-size:20px;
+	float: right;
+	margin-top: 10px;
+	margin-right: 30px;
+}
+.line{
+	height: 1px;
+	background-color: #5599FF;
+}
+body {
+	background-image: url(static/img/bg.jpg);
+	repeat: no-repeat;
+    background-attachment:fixed;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='static/img/bg.jpg', sizingMethod='scale');
+    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='static/img/bg.jpg', sizingMethod='scale');
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
 }
 </style>
-<title>line</title>
+<title>首页</title>
 </head>
-<body>
+<body background="">
 	<div class="top">
 		<%@include file="/pages/head.jsp" %>
+	</div>
+	<div class="title" align="center">
+		<span>首页  | 登录</span>
 	</div>
 	<div class="query">
 		&nbsp;&nbsp;车次：<input id="carnum" name="carnum" value="">
@@ -51,7 +76,6 @@
 		</tr>
 		<c:forEach var="l" items="${requestScope.lines}">
 			<tr>
-				<td align="center">${l.line_id}</td>
 				<td align="center">${l.start_station}--->${l.end_station}</td>
 				<td align="center">${l.car_num}</td>
 				<td align="center">${l.start_time}</td>
