@@ -10,6 +10,7 @@
 	href="${pageContext.request.contextPath}/static/css/application.css">
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/static/js/application.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-1.11.0.js"></script>
 <style type="text/css">
 .top {
 	padding-top: 50px;
@@ -24,11 +25,10 @@
 <body>
 	<div class="top"></div>
 	<div class="query">
-		&nbsp;&nbsp;用户名：<input name="startstation" value="">
-		&nbsp;&nbsp;用户电话：<input name="startstation" value="">
-		&nbsp;邮箱：<input name="endstation" value=""> &nbsp;地址：<input
-			name="endstation" value=""> &nbsp;&nbsp;<input type="submit"
-			name="submit" value="查询"> &nbsp;&nbsp; <input type="button"
+		&nbsp;&nbsp;用户名：<input id="username" name="username" value="">
+		&nbsp;&nbsp;用户电话：<input id="userphone" name="userphone" value="">
+		&nbsp;邮箱：<input id="useremail" name="useremail" value=""> &nbsp;管理员身份：<input type="checkbox" id="admin" value="" name="admin">&nbsp;&nbsp;&nbsp;<input type="button"
+			name="query" value="查询" onclick="queryAction()"> &nbsp;&nbsp; <input type="button"
 			name="create" onclick="createAction()" value="新增">
 	</div>
 	<table width="100%" border="1" cellpadding="0" cellspacing="1"
@@ -75,15 +75,15 @@
 		window.location.href = "${pageContext.request.contextPath}/pages/user/create.jsp";
 	}
 	function queryAction() {
-		var carnum = $("#carnum").val();
-		var startstation = $("#startstation").val();
-		var endstation = $("#endstation").val();
-		window.location.href = "${pageContext.request.contextPath}/UserController?method=getAllUser&carnum="
-				+ carnum
-				+ "&startstation="
-				+ startstation
-				+ "&endstation="
-				+ endstation;
+		var username = $("#username").val();
+		var userphone = $("#userphone").val();
+		var useremail = $("#useremail").val();
+		window.location.href = "${pageContext.request.contextPath}/UserController?method=getAllUser&username="
+				+ username
+				+ "&userphone="
+				+ userphone
+				+ "&useremail="
+				+ useremail ;
 	}
 </script>
 </html>

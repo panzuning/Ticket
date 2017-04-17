@@ -6,7 +6,7 @@ import com.ticket.entites.User;
 
 public interface UserDao {
 	
-	public List<User> getAllUser();
+	public List<User> getAllUser(User user);
 
 	public User getUserById(Integer userId);
 

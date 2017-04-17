@@ -33,7 +33,16 @@ public class UserController extends BaseController {
 	 */
 	protected void getAllUser(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		List<User> users = userService.getAllUser();
+		String username = request.getParameter("username");
+		String userphone = request.getParameter("userphone");
+		String useremail = request.getParameter("useremail");
+		String admin = request.getParameter("admin");
+		Integer isAdmin = null;
+		if(admin != null && !"".equals(admin)){
+			isAdmin = Integer.parseInt(admin);
+		}
+		User user = new User(username, null, userphone, useremail, null, isAdmin);
+		List<User> users = userService.getAllUser(user);
 		request.setAttribute("users", users);
 		request.getRequestDispatcher("pages/user/list.jsp").forward(request,
 				response);

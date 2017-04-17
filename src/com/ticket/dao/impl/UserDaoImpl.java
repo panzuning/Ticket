@@ -12,8 +12,20 @@ import com.ticket.entites.User;
 public class UserDaoImpl extends DAO<User> implements UserDao {
 
 	@Override
-	public List<User> getAllUser() {
-		String sql = "select * from t_user where data_statu = 0";
+	public List<User> getAllUser(User user) {
+		String sql = "select * from t_user where data_statu = 0 ";
+		if(user.getUser_name() != null && !"".equals(user.getUser_name())){
+			sql += " and user_name = '" + user.getUser_name() + "'";
+		}
+		if(user.getUser_phone() != null && !"".equals(user.getUser_phone())){
+			sql += " and user_phone = '"+ user.getUser_phone() + "'";
+		}
+		if(user.getUser_email() != null && !"".equals(user.getUser_email())){
+			sql += " and user_email = '" + user.getUser_email() + "'";
+		}
+		if(user.getAdmin_flag() != null && !"".equals(user.getAdmin_flag())){
+			sql += " and admin_flag = " + user.getAdmin_flag();
+		}
 		List<User> users = null;
 		Connection connection = null;
 		try {
