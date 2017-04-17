@@ -21,6 +21,8 @@ public class TicketController extends BaseController {
 	
     public TicketController() {
         super();
+        
+        
     }
     
     protected void getAllLine(HttpServletRequest request,
