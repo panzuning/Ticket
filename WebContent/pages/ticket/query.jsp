@@ -83,7 +83,7 @@ body {
 				<td align="center">${l.ticket_price}</td>
 				<td align="center">${l.ticket_num}</td>
 				<td align="center"><a
-					href="${pageContext.request.contextPath}/TicketController?method=pay&lineid=${l.line_id}">立即购买</a>
+					href="${pageContext.request.contextPath}/TicketController?method=toPay&lineid=${l.line_id}">立即购买</a>
 					| <a
 					href="${pageContext.request.contextPath}/TicketController?method=show&lineid=${l.line_id}">查看</a>
 				</td>

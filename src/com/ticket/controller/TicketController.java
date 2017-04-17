@@ -37,4 +37,10 @@ public class TicketController extends BaseController {
 		request.getRequestDispatcher("/pages/ticket/query.jsp").forward(request,
 				response);
 	}
+    
+    public void toPay(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+    	request.getRequestDispatcher("/pages/ticket/pay.jsp").forward(request,
+				response);
+    }
 }
