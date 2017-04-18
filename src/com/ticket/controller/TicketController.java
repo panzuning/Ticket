@@ -6,8 +6,10 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ticket.entites.Line;
+import com.ticket.entites.User;
 import com.ticket.service.LineService;
 import com.ticket.service.impl.LineServiceImpl;
 
@@ -40,7 +42,11 @@ public class TicketController extends BaseController {
     
     public void toPay(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+    	String lineid = request.getParameter("lineid");
+    	Line line = lineService.getLineById(lineid);
+    	request.setAttribute("line", line);
     	request.getRequestDispatcher("/pages/ticket/pay.jsp").forward(request,
 				response);
     }
+    
 }

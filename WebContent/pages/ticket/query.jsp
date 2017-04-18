@@ -6,10 +6,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/static/css/application.css">
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/static/js/application.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-1.11.0.js"></script>
 <style type="text/css">
 .top {
@@ -26,11 +22,33 @@
 	font-size:20px;
 	float: right;
 	margin-top: 10px;
-	margin-right: 30px;
+	margin-right: 100px;
 }
 .line{
 	height: 1px;
 	background-color: #5599FF;
+}
+/*蓝色边框的表格样式 */
+.tableLine {
+	border:1px solid #CCCCCC;
+}
+/** 交替显示颜色的表格 **/
+.DoubleColorTable tr{
+	background-color:expression("#F5F5F5,#FFFFFF,".split(",")[rowIndex%2]);
+	font-size: 12px;
+	line-height:25px;
+	border:0;
+	cellpadding:2;
+	cellspacing:1;
+	padding-left:5px;
+}
+/*深蓝色单元格样式 */
+.tableLineBg {
+	background-color:#7EAAEB;
+	font-weight:bold;
+	color:#fff;
+	padding-left:5px;
+	height:25px;
 }
 body {
 	background-image: url(static/img/bg.jpg);
@@ -42,15 +60,24 @@ body {
     -moz-background-size: cover;
     -webkit-background-size: cover;
 }
+a{
+	font-size: 20px;
+}
+a:link{
+	color:#000000;
+	text-decoration:none;
+}
+a:hover{
+	font-size:20px;
+	color:#0063dc;
+	text-decoration:none;
+}
 </style>
 <title>首页</title>
 </head>
 <body background="">
 	<div class="top">
 		<%@include file="/pages/head.jsp" %>
-	</div>
-	<div class="title" align="center">
-		<span>首页  | 登录</span>
 	</div>
 	<div class="query">
 		&nbsp;&nbsp;车次：<input id="carnum" name="carnum" value="">
@@ -105,7 +132,7 @@ body {
 		var carnum = $("#carnum").val();
 		var startstation = $("#startstation").val();
 		var endstation = $("#endstation").val();
-		window.location.href = "${pageContext.request.contextPath}/LineController?method=getAllLine&carnum="
+		window.location.href = "${pageContext.request.contextPath}/TicketController?method=getAllLine&carnum="
 				+ carnum
 				+ "&startstation="
 				+ startstation

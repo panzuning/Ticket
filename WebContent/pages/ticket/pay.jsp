@@ -23,7 +23,9 @@
 </style>
 </head>
 <body>
-	<div class="top"></div>
+	<div class="top">
+		<%@include file="/pages/head.jsp" %>
+	</div>
 	<div class="cantent">
 	<table cellpadding="8px" >
 		<tr>
@@ -40,15 +42,15 @@
 		</tr>
 		<tr>
 			<th>单张票价:</th>
-			<td>${car.ticket_price}</td>
+			<td>${line.ticket_price}</td>
 		</tr>
 		<tr>
 			<th>乘     车     人：</th>
-			<td><input type="text" name="name" id=""></td>
+			<td><input type="text" name="name" id="" value="${sessionScope.user.user_name }"></td>
 		</tr>
 		<tr>
 			<th>乘车人电话：</th>
-			<td><input type="text" name="phone" id=""></td>
+			<td><input type="text" name="phone" id="" value="${sessionScope.user.user_phone }"></td>
 		</tr>
 		<tr>
 			<th></th>
@@ -56,12 +58,20 @@
 		</tr>
 	</table>
 	<div class="pay">
-		<span>数量：<input type="text" ></span>
-		<span>总金额：<input type="text" ></span><br><br><br>
+		<span>数量：<input id="count" type="text" value="1"></span>
+		<span>总金额：<input id="totalcount" type="text" value=""></span><br><br><br>
 	</div>
-	<div style="margin-left: 500px;">
+	<div style="margin-left: 500px;margin-bottom: 20px;">
+		<input type="hidden" name="lineid" value="${line.line_id}">
 		<input type="button" name="pay" value="提交订单">
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+$(function(){
+	$("#count").val("1");
+	$("#totalcount").val($("#count").val() * ${line.ticket_price});
+});
+
+</script>
 </html>

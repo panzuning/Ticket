@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ticket.entites.Car;
 import com.ticket.entites.User;
@@ -106,7 +107,6 @@ public class UserController extends BaseController {
 	}
 
 	/**
-	 * ��¼
 	 * 
 	 * @param request
 	 * @param response
@@ -115,13 +115,25 @@ public class UserController extends BaseController {
 	 */
 	protected void login(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/pages/user/list.jsp").forward(request,
-				response);
-
+		String username = request.getParameter("username");
+		String userpwd = request.getParameter("userpwd");
+		User user = userService.getUserByName(username);
+		if(user == null){
+			request.setAttribute("message", "用户不存在");
+		}else {
+			if(user.getUser_pwd().equals(userpwd)){
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
+				response.sendRedirect(request.getContextPath() + "/TicketController?method=getAllLine");
+				return ;
+			}else{
+				request.setAttribute("message", "密码错误");
+			}
+		}
+		request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
 	}
 
 	/**
-	 * ע��
 	 * 
 	 * @param request
 	 * @param response

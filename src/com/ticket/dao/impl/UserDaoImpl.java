@@ -103,4 +103,20 @@ public class UserDaoImpl extends DAO<User> implements UserDao {
 		}
 	}
 
+	@Override
+	public User getUserByName(String username) {
+		String sql = "select * from t_user where data_statu = 0 and user_name = ?";
+		User user = null;
+		Connection connection = null;
+		try {
+			connection = JDBUtils.getConnect();
+			user = getInstance(sql, connection, username);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBUtils.closeConnect(connection);
+		}
+		return user;
+	}
+
 }
