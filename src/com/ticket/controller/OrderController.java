@@ -28,7 +28,9 @@ public class OrderController extends BaseController {
     public void commitOrder(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
     	String lineid = request.getParameter("lineid");
-    	String userInfo = request.getParameter("userInfo");
+    	String userInfo = request.getParameter("userinfo");
+    	String count = request.getParameter("count");
+    	String totalcount = request.getParameter("totalcount");
     	HttpSession session = request.getSession();
     	User user = (User) session.getAttribute("user");
     	String orderid = orderService.commitOrder(lineid, userInfo, user.getUser_id());

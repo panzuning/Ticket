@@ -77,7 +77,6 @@
   <filter-mapping>
     <filter-name>LoginFilter</filter-name>
     <url-pattern>/LoginFilter</url-pattern>
-    <url-pattern>/TicketController?method=getAllLine</url-pattern>
   </filter-mapping>
   <filter-mapping>
     <filter-name>LoginFilter</filter-name>
