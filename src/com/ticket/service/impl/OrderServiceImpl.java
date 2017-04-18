@@ -17,10 +17,12 @@ public class OrderServiceImpl implements OrderService {
 	private TicketService tickService = new TicketServiceImpl();
 	
 	@Override
-	public String commitOrder(String lineid, String userInfo,Integer userid) {
+	public String commitOrder(String lineid, String userInfo,Integer userid,String count,String totalcount) {
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
-		String orderid = format.format(new Date()) + lineid + userid;
-		Order order = new Order(orderid,userid,0);
+		String orderid = ""+ new Date().getTime() + format.format(new Date()) + lineid + userid;
+		Integer countInt = Integer.parseInt(count);
+		Double totalcountDb = Double.parseDouble(totalcount);
+		Order order = new Order(orderid,userid,0,countInt,totalcountDb);
 		orderDao.addOrder(order);
 		String[] userinfo = userInfo.split(",");
 		Integer lineId = Integer.parseInt(lineid);

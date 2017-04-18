@@ -33,7 +33,7 @@ public class OrderController extends BaseController {
     	String totalcount = request.getParameter("totalcount");
     	HttpSession session = request.getSession();
     	User user = (User) session.getAttribute("user");
-    	String orderid = orderService.commitOrder(lineid, userInfo, user.getUser_id());
+    	String orderid = orderService.commitOrder(lineid, userInfo, user.getUser_id(),count,totalcount);
     	request.setAttribute("orderid", orderid);
     	request.getRequestDispatcher("/pages/ticket/dopay.jsp").forward(request,
 				response);

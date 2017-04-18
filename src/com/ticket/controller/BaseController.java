@@ -41,7 +41,7 @@ public class BaseController extends HttpServlet {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("BaseController Òì³£Ö´ÐÐ¡£¡£¡£¡£¡£¡£");
+			System.out.println("BaseController æ‰§è¡Œå¤±è´¥");
 			throw new RuntimeException();
 		}
 	}

@@ -61,7 +61,7 @@
 		</table>
 		<div class="pay">
 			<span>数量：<input id="count" type="text" value="1"></span> <span>总金额：<input
-				id="totalcount" type="text" value=""></span><br>
+				id="totalcount" type="text"></span><br>
 			<br>
 			<br>
 		</div>
@@ -82,7 +82,8 @@ function commitAction(){
 	var count = $("#count").val();
 	var totalcount = $("#totalcount").val();
 	var userinfo = $("#name").val() +"," + $("#phone").val();
-	window.location.href = "${pageContext.request.contextPath}/OrderController?method=commitOrder&lineid=" + lineid + "&count=" + count + "&totalcount = " + totalcount + "&userinfo=" + userinfo;
+	alert(totalcount);
+	window.location.href = "${pageContext.request.contextPath}/OrderController?method=commitOrder&lineid=" + lineid + "&count=" + count + "&totalcount=" + totalcount + "&userinfo=" + userinfo;
 }
 
 </script>
