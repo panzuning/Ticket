@@ -5,6 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
+body {
+	background-image: url(static/img/managebg.jpg);
+	repeat: no-repeat;
+    background-attachment:fixed;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='static/img/managebg.jpg', sizingMethod='scale');
+    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='static/managebg.jpg', sizingMethod='scale');
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+}
 .content:BEFORE {
 	content: "";
 	display: inline-block;
