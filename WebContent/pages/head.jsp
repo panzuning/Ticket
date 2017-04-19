@@ -13,7 +13,6 @@
 .title span {
 	font-size: 20px;
 	float: right;
-	margin-top: 10px;
 	margin-right: 100px;
 }
 

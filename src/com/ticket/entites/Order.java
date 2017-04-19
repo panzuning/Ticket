@@ -15,6 +15,16 @@ public class Order implements Serializable {
 	private Integer count;
 
 	private Double totalcount;
+	
+	
+	
+	public Order(String orderId, Integer payStatu, Integer count, Double totalcount) {
+		super();
+		this.orderId = orderId;
+		this.payStatu = payStatu;
+		this.count = count;
+		this.totalcount = totalcount;
+	}
 
 	public Order(String orderId, Integer userId, Integer payStatu, Integer count, Double totalcount) {
 		super();
