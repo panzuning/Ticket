@@ -13,7 +13,7 @@ public class OrderDaoImpl extends DAO<Order> implements OrderDao {
 	@Override
 	public void addOrder(Order order) {
 
-		String sql = "insert into t_order (orderid,pay_statu,userid,data_statu,create_time,update_time,count,totalcount) values (?,?,?,?,?,?)";
+		String sql = "insert into t_order (orderid,pay_statu,userid,data_statu,create_time,update_time,count,totalcount) values (?,?,?,?,?,?,?,?)";
 		Connection connection = null;
 		try {
 			connection = JDBUtils.getConnect();
