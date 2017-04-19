@@ -15,10 +15,11 @@
 }
 
 .content {
-	width:1700px;
+	width:100%;
 	margin-left: 20px;
 	display:inline-block;
 	vertical-align: middle;
+	overflow:auto;
 }
 
 .menu {

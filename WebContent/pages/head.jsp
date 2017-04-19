@@ -43,11 +43,11 @@ a:hover {
 			| <c:if test="${sessionScope.user == null }">
 				<a href="${pageContext.request.contextPath}/pages/login.jsp">登录</a>
 			</c:if> <c:if test="${sessionScope.user != null }">
-		 	欢迎，${sessionScope.user.user_name}|
+		 	欢迎，${sessionScope.user.user_name}
 		 	<c:if test="${sessionScope.user.admin_flag == 1 }">
-					<a href="${pageContext.request.contextPath}/manage.jsp">进入后台</a>
+					|<a href="${pageContext.request.contextPath}/manage.jsp">进入后台</a>
 				</c:if>|
-		 	<a href="${pageContext.request.contextPath}/pages/login.jsp">注销</a>
+		 	<a href="${pageContext.request.contextPath }/UserController?method=logout">注销</a>
 			</c:if> </span>
 	</div>
 </body>
