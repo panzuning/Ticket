@@ -15,6 +15,8 @@ public class Ticket implements Serializable {
 	private String rider;
 	private String riderphone;
 	
+	private Integer drawTicket;
+	
 	private String carNum;
 	private String startStation;
 	private String endStation;
@@ -26,7 +28,7 @@ public class Ticket implements Serializable {
 	}
 	
 	public Ticket(Integer ticketId, Integer lineId, String rider, String riderphone, String orderId, String carNum,
-			String startStation, String endStation, Double ticketPrice,Integer payStatu) {
+			String startStation, String endStation, Double ticketPrice,Integer payStatu,Integer drawTicket) {
 		super();
 		this.ticketId = ticketId;
 		this.lineId = lineId;
@@ -38,6 +40,7 @@ public class Ticket implements Serializable {
 		this.endStation = endStation;
 		this.ticketPrice = ticketPrice;
 		this.payStatu = payStatu;
+		this.drawTicket = drawTicket;
 	}
 
 
@@ -58,6 +61,21 @@ public class Ticket implements Serializable {
 		this.riderphone = riderphone;
 	}
 	
+	public Integer getDrawTicket() {
+		return drawTicket;
+	}
+
+	public void setDrawTicket(Integer drawTicket) {
+		this.drawTicket = drawTicket;
+	}
+
+	public Integer getPayStatu() {
+		return payStatu;
+	}
+
+	public void setPayStatu(Integer payStatu) {
+		this.payStatu = payStatu;
+	}
 
 	public String getCarNum() {
 		return carNum;
