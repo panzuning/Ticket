@@ -112,7 +112,7 @@ a:hover{
 				<td align="center"><a
 					href="${pageContext.request.contextPath}/TicketController?method=toPay&lineid=${l.line_id}">立即购买</a>
 					| <a
-					href="${pageContext.request.contextPath}/TicketController?method=show&lineid=${l.line_id}">查看</a>
+					href="#">查看</a>
 				</td>
 			</tr>
 		</c:forEach>
