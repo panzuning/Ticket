@@ -7,7 +7,7 @@
 <title>登录</title>
 <style type="text/css">
 body {
-	background-image: url(static/img/loginbg.jpg);
+	background-image: url(${pageContext.request.contextPath }/static/img/loginbg.jpg);
 	repeat: no-repeat;
     background-attachment:fixed;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='static/img/loginbg.jpg', sizingMethod='scale');
@@ -31,8 +31,8 @@ span {
 <body>
 	<form
 		action="${pageContext.request.contextPath }/UserController?method=login" method="post">
-		
-		<table align="center" style="margin-top: 100px;" cellpadding="10px">
+		<h1 align="center">欢迎使用汽车售票系统</h1>
+		<table align="center" style="margin-top: 10px;" cellpadding="10px">
 			<tr>
 				<td colspan="2" align="right"><span>${requestScope.message}</span></td>
 			</tr>
