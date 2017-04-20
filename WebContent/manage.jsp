@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,13 +9,16 @@
 body {
 	background-image: url(static/img/managebg.jpg);
 	repeat: no-repeat;
-    background-attachment:fixed;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='static/img/managebg.jpg', sizingMethod='scale');
-    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='static/managebg.jpg', sizingMethod='scale');
-    background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
+	background-attachment: fixed;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='static/img/managebg.jpg',
+		sizingMethod='scale');
+	-ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='static/managebg.jpg',
+		sizingMethod='scale');
+	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 }
+
 .content:BEFORE {
 	content: "";
 	display: inline-block;
@@ -25,11 +29,11 @@ body {
 }
 
 .content {
-	width:100%;
+	width: 100%;
 	margin-left: 20px;
-	display:inline-block;
+	display: inline-block;
 	vertical-align: middle;
-	overflow:auto;
+	overflow: auto;
 }
 
 .menu {
@@ -42,6 +46,30 @@ body {
 	float: left;
 	padding-left: 50px;
 }
+/*公共部分主体内容*/
+.publicMian {
+	border-top: 1px solid #c2ccd5;
+	display: flex; /*变为弹性盒模型*/
+	display: -webkit-flex;
+	background: #fff;
+}
+/*左边*/
+.left {
+	width: 168px;
+	background: url("static/img/leftBg.png") 0 0 repeat-y;
+	margin-right: 10px;
+	/*height: 520px;*/
+	min-height: 520px;
+}
+
+/*右边*/
+.right {
+	width: 90%;
+}
+iframe{
+	width: 90%;
+}
+
 </style>
 <title>后台首页</title>
 </head>
@@ -58,7 +86,7 @@ body {
 	</frameset>
 </frameset> --%>
 <body>
-	<div class="top">
+	<%-- <div class="top">
 		<%@include file="/pages/head.jsp"%>
 	</div>
 	<div class="content">
@@ -70,6 +98,22 @@ body {
 				height="500px"
 				src="${pageContext.request.contextPath}/pages/content.jsp"></iframe>
 		</div>
-	</div>
+	</div> --%>
+
+	<header>
+		<%@include file="/pages/head.jsp"%>
+	</header>
+	<section class="publicMian">
+		<div class="left">
+			<nav>
+				<%@include file="/pages/menu.jsp"%>
+			</nav>
+		</div>
+		<div class="right">
+			<iframe  name="showframe" frameborder="0"
+				height="500px"
+				src="${pageContext.request.contextPath}/pages/content.jsp"></iframe>
+		</div>
+	</section>
 </body>
 </html>

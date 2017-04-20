@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h1 align="center">欢迎，${sessionScope.user.user_name }</h1>
 </body>
 </html>
