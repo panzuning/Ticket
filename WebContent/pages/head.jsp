@@ -46,7 +46,6 @@ a:hover {
 			</c:if> <c:if test="${sessionScope.user != null }">
 		 	欢迎，${sessionScope.user.user_name}|
 		 	<c:if test="${sessionScope.user.admin_flag == 1 }">
-		 	
 					<a href="${pageContext.request.contextPath}/manage.jsp">进入后台</a>
 				</c:if>|
 		 	<a href="${pageContext.request.contextPath}/pages/login.jsp">注销</a>
