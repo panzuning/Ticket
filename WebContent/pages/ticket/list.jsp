@@ -28,7 +28,7 @@
 	<div class="query">
 		&nbsp;&nbsp;订单号：<input id="orderid" name="orderid" value="">
 		&nbsp;&nbsp;交易状态：<select id="selectStatu">
-			<option >请选择</option>
+			<option>请选择</option>
 			<option value="0">未付款</option>
 			<option value="1">已付款</option>
 			<option value="2">交易关闭</option>
@@ -40,19 +40,21 @@
 	<table width="100%" border="1" cellpadding="0" cellspacing="1"
 		class="tableLine DoubleColorTable">
 		<tr>
-			<td colspan="8" align="center" class="tableLineBg">订单列表</td>
+			<td colspan="9" align="center" class="tableLineBg">票务列表</td>
 		</tr>
 		<tr>
 			<td align="center">票编号</td>
 			<td align="center">乘车人</td>
 			<td align="center">乘车人电话</td>
+			<td align="center">车次</td>
 			<td align="center">始发站-->终点站</td>
 			<td align="center">票价</td>
-			<td align="center">状态</td>
+			<td align="center">订单状态</td>
+			<td align="center">出票状态</td>
 			<td align="center">操 作</td>
 		</tr>
 		<c:if test="${!empty requestScope.tickets}">
-			<c:forEach var="o" items="${requestScope.tickets}">
+			<c:forEach var="t" items="${requestScope.tickets}">
 				<tr>
 					<td align="center">${t.ticketId}</td>
 					<td align="center">${t.rider}</td>
@@ -60,11 +62,21 @@
 					<td align="center">${t.carNum}</td>
 					<td align="center">${t.startStation}-->${t.endStation}</td>
 					<td align="center">${t.ticketPrice}</td>
-					<td align="center">${t.payStatu}</td>
+					<td align="center"><c:if test="${t.payStatu == 0}">
+					未付款
+				</c:if> <c:if test="${t.payStatu == 1}">
+					已付款
+				</c:if> <c:if test="${t.payStatu == 2}">
+					交易关闭
+				</c:if> <c:if test="${t.payStatu == 3}">
+					交易取消
+				</c:if></td>
+				<td align="center"><c:if test="${t.drawTicket == 0}">未出票</c:if>
+				<c:if test="${t.drawTicket == 1}">已出票</c:if></td>
 					<td align="center"><a
-						href="${pageContext.request.contextPath}/OrderController?method=show&orderid=${o.orderId}">查看</a>
+						href="#">查看</a>
 						| <a
-						href="${pageContext.request.contextPath}/OrderController?method=delete&orderid=${o.orderId}">删除</a>
+						href="#">删除</a>
 					</td>
 				</tr>
 			</c:forEach>
@@ -74,10 +86,8 @@
 				</td>
 			</tr>
 		</c:if>
-		<c:if test="${empty requestScope.orders}">
-			<td colspan="8" align="center">
-				没有查到任何数据。。。
-			</td>
+		<c:if test="${empty requestScope.tickets}">
+			<td colspan="9" align="center">没有查到任何数据。。。</td>
 		</c:if>
 	</table>
 </body>
