@@ -21,7 +21,7 @@
 	margin-bottom: 20px;
 }
 </style>
-<title>订单管理</title>
+<title>车票管理</title>
 </head>
 <body>
 	<div class="top"></div>
@@ -43,27 +43,24 @@
 			<td colspan="8" align="center" class="tableLineBg">订单列表</td>
 		</tr>
 		<tr>
-			<td align="center">订单号</td>
-			<td align="center">订单状态</td>
-			<td align="center">数量</td>
-			<td align="center">总金额</td>
+			<td align="center">票编号</td>
+			<td align="center">乘车人</td>
+			<td align="center">乘车人电话</td>
+			<td align="center">始发站-->终点站</td>
+			<td align="center">票价</td>
+			<td align="center">状态</td>
 			<td align="center">操 作</td>
 		</tr>
-		<c:if test="${!empty requestScope.orders}">
-			<c:forEach var="o" items="${requestScope.orders}">
+		<c:if test="${!empty requestScope.tickets}">
+			<c:forEach var="o" items="${requestScope.tickets}">
 				<tr>
-					<td align="center">${o.orderId}</td>
-					<td align="center"><c:if test="${o.payStatu == 0}">
-					未付款
-				</c:if> <c:if test="${o.payStatu == 1}">
-					已付款
-				</c:if> <c:if test="${o.payStatu == 2}">
-					交易关闭
-				</c:if> <c:if test="${o.payStatu == 3}">
-					交易取消
-				</c:if></td>
-					<td align="center">${o.count}</td>
-					<td align="center">${o.totalcount}</td>
+					<td align="center">${t.ticketId}</td>
+					<td align="center">${t.rider}</td>
+					<td align="center">${t.riderphone}</td>
+					<td align="center">${t.carNum}</td>
+					<td align="center">${t.startStation}-->${t.endStation}</td>
+					<td align="center">${t.ticketPrice}</td>
+					<td align="center">${t.payStatu}</td>
 					<td align="center"><a
 						href="${pageContext.request.contextPath}/OrderController?method=show&orderid=${o.orderId}">查看</a>
 						| <a

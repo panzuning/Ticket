@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.ticket.entites.Line;
+import com.ticket.entites.Ticket;
 import com.ticket.entites.User;
 import com.ticket.service.LineService;
+import com.ticket.service.TicketService;
 import com.ticket.service.impl.LineServiceImpl;
+import com.ticket.service.impl.TicketServiceImpl;
 
 /**
  * Servlet implementation class TicketController
@@ -20,6 +23,7 @@ public class TicketController extends BaseController {
 	private static final long serialVersionUID = 1L;
        
 	private LineService lineService = new LineServiceImpl();
+	private TicketService ticketService = new TicketServiceImpl();
 	
     public TicketController() {
         super();
@@ -46,6 +50,15 @@ public class TicketController extends BaseController {
     	Line line = lineService.getLineById(lineid);
     	request.setAttribute("line", line);
     	request.getRequestDispatcher("/pages/ticket/pay.jsp").forward(request,
+				response);
+    }
+    
+    public void getAllTicket(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+    	Ticket ticket = new Ticket();
+    	List<Ticket> tickets = ticketService.getAllTicket(ticket);
+    	request.setAttribute("tickets", tickets);
+    	request.getRequestDispatcher("/pages/ticket/list.jsp").forward(request,
 				response);
     }
     
