@@ -29,15 +29,14 @@
 	<div class="cantent">
 		<table cellpadding="8px">
 			<tr>
+				<td>${message }</td>
+			</tr>
+			<tr>
 				<th>车次:</th>
 				<td>${line.car_num}</td>
 			</tr>
 			<tr>
 				<th>始发站 - 终点站:</th>
-				<td>${line.start_station}- ${line.end_station}</td>
-			</tr>
-			<tr>
-				<th>始发站 - 终点站：</th>
 				<td>${line.start_station}- ${line.end_station}</td>
 			</tr>
 			<tr>
@@ -82,7 +81,6 @@ function commitAction(){
 	var count = $("#count").val();
 	var totalcount = $("#totalcount").val();
 	var userinfo = $("#name").val() +"," + $("#phone").val();
-	alert(totalcount);
 	window.location.href = "${pageContext.request.contextPath}/OrderController?method=commitOrder&lineid=" + lineid + "&count=" + count + "&totalcount=" + totalcount + "&userinfo=" + userinfo;
 }
 

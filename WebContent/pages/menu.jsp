@@ -33,8 +33,6 @@ a {
 			href="${pageContext.request.contextPath}/LineController?method=getAllLine">路线管理</a></li>
 		<li><a target="showframe"
 			href="${pageContext.request.contextPath}/OrderController?method=getAllOrder">订单管理</a></li>
-		<li><a target="showframe"
-			href="${pageContext.request.contextPath}/pages/ticket/query.jsp">车票查询</a></li>
 	</ul>
 </body>
 </html>

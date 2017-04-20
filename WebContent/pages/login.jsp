@@ -6,6 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>登录</title>
 <style type="text/css">
+body {
+	background-image: url(static/img/loginbg.jpg);
+	repeat: no-repeat;
+    background-attachment:fixed;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='static/img/loginbg.jpg', sizingMethod='scale');
+    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='static/loginbg.jpg', sizingMethod='scale');
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+}
 form {
 	width:500px;
 	border: 1px solid #00F;

@@ -33,10 +33,9 @@
 	<table width="100%" border="1" cellpadding="0" cellspacing="1"
 		class="tableLine DoubleColorTable">
 		<tr>
-			<td colspan="8" align="center" class="tableLineBg">用户列表</td>
+			<td colspan="8" align="center" class="tableLineBg">车辆列表</td>
 		</tr>
 		<tr>
-			<td align="center">汽车编号</td>
 			<td align="center">车牌号</td>
 			<td align="center">司机</td>
 			<td align="center">座位数</td>
