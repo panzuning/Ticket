@@ -13,7 +13,9 @@ public class CarDaoImpl extends DAO<Car> implements CarDao {
 
 	@Override
 	public List<Car> getAllCar(Car car) {
+		//编写sql语句进行查询
 		String sql = "select * from t_car where data_statu = 0 ";
+		//根据条件进行判断，如果没有条件，条件为null，则查询全部信息
 		if (car.getCar_num() != null && !"".equals(car.getCar_num())) {
 			sql += " and car_num = '" + car.getCar_num() + "'";
 		}
@@ -23,7 +25,9 @@ public class CarDaoImpl extends DAO<Car> implements CarDao {
 		Connection connection = null;
 		List<Car> cars = null;
 		try {
+			//获取数据库连接
 			connection = JDBUtils.getConnect();
+			//获取执行sql语句，调用父类，获取车辆信息的方法
 			cars = getAllInstance(sql, connection);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -35,6 +39,7 @@ public class CarDaoImpl extends DAO<Car> implements CarDao {
 
 	@Override
 	public void addCar(Car car) {
+		//执行添加的sql
 		String sql = "insert into t_car (car_num,car_driver,car_seat,data_statu,create_time,update_time) values (?,?,?,?,?,?)";
 		Connection connection = null;
 		try {
