@@ -35,28 +35,51 @@ public class OrderController extends BaseController {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * 订单提交，将所有的订单信息获取
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	public void commitOrder(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//获取所有的订单参数
 		String lineid = request.getParameter("lineid");
 		String userInfo = request.getParameter("userinfo");
 		String count = request.getParameter("count");
 		String totalcount = request.getParameter("totalcount");
+		//将需要回显的参数保存在request中
 		request.setAttribute("count", count);
 		request.setAttribute("totalcount", totalcount);
+		//根据路线的id获取路线信息
 		Line line = lineService.getLineById(lineid);
 		request.setAttribute("line", line);
+		//判断票是否充足
 		if (line.getTicket_num() > 0) {
+			//票充足,获取保存在session中的用户信息
 			HttpSession session = request.getSession();
 			User user = (User) session.getAttribute("user");
+			//将提交订单信息保存
 			String orderid = orderService.commitOrder(line, userInfo, user.getUser_id(), count, totalcount);
+			//将订单号保存request域，页面获取订单信息
 			request.setAttribute("orderid", orderid);
+			//重定向
 			request.getRequestDispatcher("/pages/ticket/dopay.jsp").forward(request, response);
 		} else {
+			//如果票已卖完，将信息提示给用户
 			request.setAttribute("message", "票已被抢光");
 			request.getRequestDispatcher("/pages/ticket/pay.jsp").forward(request, response);
 		}
 	}
 
+	/**
+	 * 查询所有订单信息
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	public void getAllOrder(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String orderid = request.getParameter("orderid");

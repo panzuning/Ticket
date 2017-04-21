@@ -28,6 +28,7 @@ public class OrderDaoImpl extends DAO<Order> implements OrderDao {
 
 	@Override
 	public List<Order> getAllOrder(Order order) {
+		//查询所有的订单信息要获取的字段有 订单ID，支付状态，数量，总金额
 		String sql = "select orderid orderId,pay_statu payStatu,count,totalcount from t_order where data_statu = 0 ";
 		if(order.getOrderId() != null && !"".equals(order.getOrderId())){
 			sql += " and orderid = '" + order.getOrderId() + "'";
