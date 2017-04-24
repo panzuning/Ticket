@@ -3,7 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-1.11.0.js"></script>
 <title>登录</title>
 <style type="text/css">
 body {
@@ -38,7 +39,7 @@ span {
 			</tr>
 			<tr>
 				<th>用户名：</th>
-				<td><input type="text" name="username"></td>
+				<td><input type="text" name="username" value="${username }"></td>
 			</tr>
 			<tr>
 				<th>密&nbsp;码：</th>
@@ -46,10 +47,18 @@ span {
 			</tr>
 			<tr>
 				<td align="right" colspan="2"><input type="button"
-					name="userpwd" value="注册">&nbsp;&nbsp;<input type="submit"
+					name="register" id="register" value="注册">&nbsp;&nbsp;<input type="submit"
 					name="username" value="登录"></td>
 			</tr>
 		</table>
 	</form>
 </body>
+<script type="text/javascript">
+$(function(){
+	$("#register").click(function(){
+		window.location.href = "${pageContext.request.contextPath }/pages/user/register.jsp";
+	});
+});
+
+</script>
 </html>

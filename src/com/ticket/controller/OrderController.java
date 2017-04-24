@@ -94,4 +94,13 @@ public class OrderController extends BaseController {
 		request.getRequestDispatcher("/pages/order/list.jsp").forward(request, response);
 
 	}
+	
+	
+	
+	public void delete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String orderid = request.getParameter("orderid");
+		orderService.deleteOrderById(orderid);
+		response.sendRedirect(request.getContextPath() + "/OrderController?method=getAllOrder");
+	}
 }

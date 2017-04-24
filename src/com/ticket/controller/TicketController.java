@@ -55,7 +55,15 @@ public class TicketController extends BaseController {
     
     public void getAllTicket(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+    	String orderid = request.getParameter("orderid");
+    	String paystatu = request.getParameter("paystatu");
     	Ticket ticket = new Ticket();
+    	ticket.setOrderId(orderid);
+    	Integer paystatuDb = null;
+    	if(paystatu != null && !"".equals(paystatu) && !"null".equals(paystatu)){
+    		paystatuDb = Integer.parseInt(paystatu);
+    	}
+    	ticket.setPayStatu(paystatuDb);
     	List<Ticket> tickets = ticketService.getAllTicket(ticket);
     	request.setAttribute("tickets", tickets);
     	request.getRequestDispatcher("/pages/ticket/list.jsp").forward(request,

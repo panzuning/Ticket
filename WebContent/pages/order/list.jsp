@@ -65,7 +65,7 @@
 					<td align="center">${o.count}</td>
 					<td align="center">${o.totalcount}</td>
 					<td align="center"><a
-						href="${pageContext.request.contextPath}/OrderController?method=show&orderid=${o.orderId}">查看</a>
+						href="#">查看</a>
 						| <a
 						href="${pageContext.request.contextPath}/OrderController?method=delete&orderid=${o.orderId}">删除</a>
 					</td>

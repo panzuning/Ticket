@@ -18,7 +18,7 @@ public class JDBUtils {
 		Connection connection = null;
 		try {
 			String driverClassName = "com.mysql.jdbc.Driver";
-			String url = "jdbc:mysql://127.0.0.1:3306/ticket";
+			String url = "jdbc:mysql://192.168.255.129:3306/ticket";
 			String username = "root";
 			String password = "root";
 			//通过反射得到数据库管理驱动类，

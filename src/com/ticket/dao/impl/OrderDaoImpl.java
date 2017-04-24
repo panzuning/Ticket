@@ -49,4 +49,18 @@ public class OrderDaoImpl extends DAO<Order> implements OrderDao {
 		return orders;
 	}
 
+	@Override
+	public void deleteOrderById(String orderid) {
+		String sql = "update t_order set data_statu = 1 where orderid = ?";
+		Connection connection = null;
+		try {
+			connection = JDBUtils.getConnect();
+			updateData(sql, connection, orderid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBUtils.closeConnect(connection);
+		}
+	}
+
 }

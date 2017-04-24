@@ -100,7 +100,7 @@
 	function queryAction() {
 		var orderid = $("#orderid").val();
 		var paystatu = $("#paystatu").val();
-		window.location.href = "${pageContext.request.contextPath}/OrderController?method=getAllOrder&orderid="
+		window.location.href = "${pageContext.request.contextPath}/TicketController?method=getAllTicket"
 				+ orderid + "&paystatu=" + paystatu;
 	}
 </script>

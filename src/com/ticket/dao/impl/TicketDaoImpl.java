@@ -32,6 +32,13 @@ public class TicketDaoImpl extends DAO<Ticket> implements TicketDao {
 		// 通过关联多张表 路线表，订单表，车辆表，车票信息表 四张表获取车票上的信息：票的ID（用于查询）路线ID（用于查询），乘车人，乘车人电话，
 		// 订单ID 出票状态，车牌号，始发站，终点站 ， 价格， 支付状态
 		String sql = "select t.ticketid ticketId,t.lineid lineId,t.rider,t.riderphone,t.orderid orderId,t.drawticket drawTicket,c.car_num carNum,l.start_station startStation,l.end_station endStation,l.ticket_price ticketPrice,o.pay_statu payStatu from t_ticket t  left join t_line l on t.lineid = l.line_id left join t_car c on c.car_id = l.car_id left join t_order o on o.orderid = t.orderid where t.data_statu = 0 ";
+		if(ticket.getOrderId() != null){
+			sql += " and t.orderid = '" + ticket.getOrderId() + "'";
+		}
+		if(ticket.getPayStatu() != null){
+			sql += " and o.pay_statu = " + ticket.getPayStatu();
+		}
+		
 		Connection connection = null;
 		List<Ticket> tickets = null;
 		try {

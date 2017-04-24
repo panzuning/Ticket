@@ -132,6 +132,25 @@ public class UserController extends BaseController {
 		}
 		request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
 	}
+	
+	protected void register(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		String username = request.getParameter("username");
+		String userpwd = request.getParameter("userpwd");
+		String userphone = request.getParameter("userphone");
+		String email = request.getParameter("email");
+		String address = request.getParameter("address");
+		String admin = request.getParameter("adminFlag");
+		System.out.println(admin);
+		Integer admindb = 0;
+		if(admin != null){
+			admindb = Integer.parseInt(admin);
+		}
+		User user = new User(username, userpwd, userphone, email, address, admindb);
+		userService.addUser(user);
+		request.setAttribute("username", username);
+		request.getRequestDispatcher("/pages/login.jsp").forward(request, response);
+	}
 
 	/**
 	 * 
